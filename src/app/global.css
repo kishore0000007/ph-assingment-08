@@ -21,7 +21,7 @@
   --muted: #ffe4e6;
   --muted-foreground: #be123c;
 
-  --hover: #ffe4e6;
+  --hover: #cf0f1c;
 }
 
  
@@ -46,7 +46,72 @@
   --hover: #3f1d24;
 }
 
-@theme inline {
+:root {
+  --background: #fffaf9;
+  --foreground: #3f1d24;
+
+  --card: #ffffff;
+  --card-foreground: #3f1d24;
+
+  --border: #fecdd3;
+
+  --primary: #e11d48;
+  --primary-foreground: #ffffff;
+
+  --secondary: #fff1f2;
+  --secondary-foreground: #9f1239;
+
+  --muted: #ffe4e6;
+  --muted-foreground: #be123c;
+
+  --hover: #ffe4e6;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-hover: var(--hover);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
+}
+
+.dark {
+  --background: #0f0a0b;
+  --foreground: #fff1f2;
+
+  --card: #1a1012;
+  --card-foreground: #fff1f2;
+
+  --border: #3f1d24;
+
+  --primary: #fb7185;
+  --primary-foreground: #ffffff;
+
+  --secondary: #2a1519;
+  --secondary-foreground: #fecdd3;
+
+  --muted: #2a1519;
+  --muted-foreground: #fda4af;
+
+  --hover: #3f1d24;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -78,9 +143,9 @@
   border-color: var(--border);
 }
 
-html {
+/*html {
   scroll-behavior: smooth;
-}
+}*/
 
 body {
   background: var(--background);

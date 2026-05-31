@@ -1,22 +1,18 @@
-import { mongodbAdapter } from '@better-auth/mongo-adapter'
-import { betterAuth } from 'better-auth'
+  import { betterAuth } from 'better-auth'
+import { mongodbAdapter } from 'better-auth/adapters/mongodb'
 import { MongoClient } from 'mongodb'
 
+if (!process.env.MONGODB_URL) {
+  throw new Error('MONGODB_URL is not defined in .env.local')
+}
+
 const client = new MongoClient(process.env.MONGODB_URL)
-const db = client.db('Login_DB')
+const db = client.db('SweetRose_DB')
 
 export const auth = betterAuth({
-	database: mongodbAdapter(db, {
-		client,
-	}),
+  database: mongodbAdapter(db),
 
-	emailAndPassword: {
-		enabled: true,
-	},
-	// socialProviders: {
-	// 	google: {
-	// 		clientId: process.env.GOOGLE_CLIENT_ID,
-	// 		clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-	// 	},
-	// },
+  emailAndPassword: {
+    enabled: true,
+  },
 })

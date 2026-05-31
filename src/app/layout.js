@@ -1,13 +1,12 @@
- import { Inter, Playfair_Display } from 'next/font/google'
+  import { Inter, Playfair_Display } from 'next/font/google'
 import './global.css'
+import Navbar from '../components/layout/Navbar'
 
- 
 const inter = Inter({
 	variable: '--font-inter',
 	subsets: ['latin'],
 })
 
- 
 const playfair = Playfair_Display({
 	variable: '--font-playfair',
 	subsets: ['latin'],
@@ -27,6 +26,7 @@ export default function RootLayout({ children }) {
 			className={`${inter.variable} ${playfair.variable} h-screen antialiased`}
 		>
 			<body className='min-h-full flex flex-col font-(--font-inter)'>
+				<Navbar />
 				<main className='min-h-screen'>{children}</main>
 			</body>
 		</html>
