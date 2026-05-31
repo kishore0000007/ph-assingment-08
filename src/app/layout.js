@@ -2,6 +2,7 @@
 import './global.css'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+import NextThemeProvider from '../providers/NextThemeProvider'
 
 const inter = Inter({
 	variable: '--font-inter',
@@ -27,11 +28,11 @@ export default function RootLayout({ children }) {
 			className={`${inter.variable} ${playfair.variable} h-screen antialiased`}
 		>
 			<body className='min-h-full flex flex-col font-(--font-inter)'>
-				<Navbar />
-				
-				<main className='min-h-screen'>{children}</main>
-
-				<Footer />
+				<NextThemeProvider>
+					<Navbar />
+					<main className='flex-1'>{children}</main>
+					<Footer />
+				</NextThemeProvider>
 			</body>
 		</html>
 	)
