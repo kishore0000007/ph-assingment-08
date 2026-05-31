@@ -1,6 +1,7 @@
   import { Inter, Playfair_Display } from 'next/font/google'
 import './global.css'
 import Navbar from '../components/layout/Navbar'
+import Footer from '../components/layout/Footer'
 
 const inter = Inter({
 	variable: '--font-inter',
@@ -27,7 +28,10 @@ export default function RootLayout({ children }) {
 		>
 			<body className='min-h-full flex flex-col font-(--font-inter)'>
 				<Navbar />
+				
 				<main className='min-h-screen'>{children}</main>
+
+				<Footer />
 			</body>
 		</html>
 	)
