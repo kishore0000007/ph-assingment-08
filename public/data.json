@@ -1,0 +1,134 @@
+[
+	{
+		"id": 1,
+		"title": "Samsung Galaxy S25 Ultra",
+		"description": "Flagship Android smartphone with 200MP camera, Snapdragon 8 Elite chip, and built-in S Pen.",
+		"price": 1299,
+		"image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&auto=format&fit=crop&q=80",
+		"tag": "Best Seller",
+		"category": "Smartphones",
+		"rating": 4.9,
+		"reviews": 124
+	},
+	{
+		"id": 2,
+		"title": "Apple MacBook Pro 14\"",
+		"description": "M3 Pro chip, 18GB RAM, 512GB SSD — built for creators and developers who demand the best.",
+		"price": 1999,
+		"image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&auto=format&fit=crop&q=80",
+		"tag": "Premium",
+		"category": "Laptops",
+		"rating": 4.8,
+		"reviews": 89
+	},
+	{
+		"id": 3,
+		"title": "Sony WH-1000XM5",
+		"description": "Industry-leading noise cancellation headphones with 30-hour battery life and crystal-clear audio.",
+		"price": 349,
+		"image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&auto=format&fit=crop&q=80",
+		"tag": "Top Rated",
+		"category": "Audio",
+		"rating": 5.0,
+		"reviews": 56
+	},
+	{
+		"id": 4,
+		"title": "Apple iPad Pro 12.9\"",
+		"description": "M2 chip, Liquid Retina XDR display, and support for Apple Pencil — your portable powerhouse.",
+		"price": 1099,
+		"image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&auto=format&fit=crop&q=80",
+		"tag": "Popular",
+		"category": "Tablets",
+		"rating": 4.7,
+		"reviews": 98
+	},
+	{
+		"id": 5,
+		"title": "ASUS ROG Gaming Monitor 27\"",
+		"description": "1440p 165Hz IPS display with 1ms response time and RGB lighting — dominate every match.",
+		"price": 429,
+		"image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&auto=format&fit=crop&q=80",
+		"tag": "Gamer Pick",
+		"category": "Monitors",
+		"rating": 4.9,
+		"reviews": 110
+	},
+	{
+		"id": 6,
+		"title": "Logitech MX Master 3S",
+		"description": "Ultra-precise 8K DPI tracking, silent clicks, and ergonomic design for all-day productivity.",
+		"price": 99,
+		"image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&auto=format&fit=crop&q=80",
+		"tag": "Editor's Choice",
+		"category": "Accessories",
+		"rating": 4.8,
+		"reviews": 76
+	},
+	{
+		"id": 7,
+		"title": "GoPro HERO12 Black",
+		"description": "5.3K60 video, HyperSmooth 6.0 stabilization, and waterproof to 10m. Adventure-ready.",
+		"price": 399,
+		"image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&auto=format&fit=crop&q=80",
+		"tag": "Trending",
+		"category": "Cameras",
+		"rating": 4.6,
+		"reviews": 64
+	},
+	{
+		"id": 8,
+		"title": "Amazon Echo Dot 5th Gen",
+		"description": "Compact Alexa smart speaker with improved bass, temperature sensor, and smart home hub.",
+		"price": 49,
+		"image": "https://images.unsplash.com/photo-1512446816042-444d641267d4?w=400&auto=format&fit=crop&q=80",
+		"tag": "Smart Home",
+		"category": "Smart Devices",
+		"rating": 4.5,
+		"reviews": 52
+	},
+	{
+		"id": 9,
+		"title": "Anker 733 Power Bank",
+		"description": "10,000mAh with 65W GaN charging — charge your laptop, phone, and tablet simultaneously.",
+		"price": 79,
+		"image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&auto=format&fit=crop&q=80",
+		"tag": "Must Have",
+		"category": "Power",
+		"rating": 4.7,
+		"reviews": 43
+	},
+	{
+		"id": 10,
+		"title": "Samsung 970 EVO SSD 1TB",
+		"description": "NVMe M.2 SSD with read speeds up to 3,500MB/s — supercharge your PC or laptop storage.",
+		"price": 89,
+		"image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&auto=format&fit=crop&q=80",
+		"tag": "Fast",
+		"category": "Storage",
+		"rating": 4.6,
+		"reviews": 88
+	},
+	{
+		"id": 11,
+		"title": "DJI Mini 4 Pro Drone",
+		"description": "Under 249g, 4K HDR video, omnidirectional obstacle sensing, and 34-min flight time.",
+		"price": 759,
+		"image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&auto=format&fit=crop&q=80",
+		"tag": "New Arrival",
+		"category": "Drones",
+		"rating": 4.8,
+		"reviews": 71
+	},
+	{
+		"id": 12,
+		"title": "Apple Watch Series 9",
+		"description": "Always-on Retina display, blood oxygen & ECG sensors, crash detection, and all-day battery.",
+		"price": 399,
+		"image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&auto=format&fit=crop&q=80",
+		"tag": "Wearable",
+		"category": "Smartwatches",
+		"rating": 4.4,
+		"reviews": 39
+	}
+]
