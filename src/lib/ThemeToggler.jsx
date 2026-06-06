@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 
 import { Switch } from '@heroui/react'
 import { Moon, Sun } from 'lucide-react'

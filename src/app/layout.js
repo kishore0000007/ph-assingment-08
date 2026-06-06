@@ -1,4 +1,4 @@
-  import { Inter, Playfair_Display } from 'next/font/google'
+   import { Inter, Playfair_Display } from 'next/font/google'
 import './global.css'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
