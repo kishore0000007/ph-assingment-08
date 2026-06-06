@@ -1,4 +1,5 @@
-  import { betterAuth } from 'better-auth'
+ 
+ import { betterAuth } from 'better-auth'
 import { mongodbAdapter } from 'better-auth/adapters/mongodb'
 import { MongoClient } from 'mongodb'
 
@@ -7,12 +8,22 @@ if (!process.env.MONGODB_URL) {
 }
 
 const client = new MongoClient(process.env.MONGODB_URL)
-const db = client.db('SweetRose_DB')
+
+await client.connect()
+
+const db = client.db('login')
 
 export const auth = betterAuth({
   database: mongodbAdapter(db),
 
   emailAndPassword: {
     enabled: true,
+  },
+
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    },
   },
 })

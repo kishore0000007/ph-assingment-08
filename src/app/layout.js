@@ -3,7 +3,8 @@ import './global.css'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import NextThemeProvider from '../providers/NextThemeProvider'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const inter = Inter({
 	variable: '--font-inter',
 	subsets: ['latin'],
@@ -29,10 +30,13 @@ export default function RootLayout({ children }) {
 		>
 			<body className='min-h-full flex flex-col font-(--font-inter)'>
 				<NextThemeProvider>
+					<ToastContainer />
 					<Navbar />
 					<main className='flex-1'>{children}</main>
 					<Footer />
 				</NextThemeProvider>
+				 
+        
 			</body>
 		</html>
 	)

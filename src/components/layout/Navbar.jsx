@@ -328,15 +328,17 @@ const Navbar = () => {
 						<span className='sb-user-name'>{user.name}</span>
 						<span className='sb-user-email'>{user.email}</span>
 					</div>
-					<Link href='/profile'>
-						<Avatar
-							src={user.image || ''}
-							name={user.name || 'User'}
-							size='sm'
-							isBordered
-							style={{ border: '2px solid rgba(0,210,255,0.5)', cursor: 'pointer' }}
-						/>
-					</Link>
+					 <Link href='/profile'>
+  <Avatar
+    src={user?.image || undefined}
+    name={user?.name || 'User'}
+    size='sm'
+    style={{
+      border: '2px solid rgba(0,210,255,0.5)',
+      cursor: 'pointer',
+    }}
+  />
+</Link>
 					<button className='sb-btn-logout' onClick={handleLogout}>
 						Logout
 					</button>
@@ -399,15 +401,17 @@ const Navbar = () => {
 						{/* Desktop auth */}
 						{renderAuthSection()}
 
-						{/* Mobile avatar */}
+					 	{/* Mobile avatar */}
 						{mounted && !isPending && user && (
 							<Link href='/profile' className='sb-mobile-only'>
 								<Avatar
-									src={user.image || ''}
-									name={user.name || 'User'}
+									src={user?.image || undefined}
+									name={user?.name || 'User'}
 									size='sm'
-									isBordered
-									style={{ border: '2px solid rgba(0,210,255,0.5)', cursor: 'pointer' }}
+									style={{
+										border: '2px solid rgba(0,210,255,0.5)',
+										cursor: 'pointer',
+									}}
 								/>
 							</Link>
 						)}
