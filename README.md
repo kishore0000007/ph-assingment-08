@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ 
+ # ✨ Signature Treats (Next.js E-commerce UI)
 
-## Getting Started
+A modern, fully responsive **Next.js 14+ UI project** built with elegant design, dark mode support, and reusable components.  
+This project focuses on clean UI, smooth interactions, and scalable architecture.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Live Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🌗 **Dark / Light Theme Toggle** (next-themes)
+- ⚡ Built with **Next.js App Router**
+- 🎨 Styled using **Tailwind CSS + CSS Variables**
+- 🧩 Beautiful UI components with **HeroUI**
+- 🖼️ Optimized images using **next/image**
+- 🔔 Toast notifications (react-toastify)
+- 💎 Modern product card & gallery UI
+- 📱 Fully responsive design (mobile-first)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 Tech Stack
 
-## Learn More
+- **Framework:** Next.js 14+
+- **UI Library:** HeroUI
+- **Styling:** Tailwind CSS + Custom CSS Variables
+- **Icons:** Lucide React
+- **Theme System:** next-themes
+- **Fonts:** Google Fonts (Inter + Playfair Display)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌙 Theme System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Dark mode is handled using:
 
-## Deploy on Vercel
+- `next-themes`
+- CSS variables (`:root` + `.dark`)
+- Tailwind utility classes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```js
+<ThemeProvider attribute="class" defaultTheme="light">
