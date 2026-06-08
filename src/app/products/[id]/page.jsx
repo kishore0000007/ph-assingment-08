@@ -1,30 +1,14 @@
- import React from 'react'
-import ProductDetails from '../../../components/modules/SingleProduct/ProductDetails'
- const SingleProductDetails = async ({ params }) => {
-  const { id } = await params
+ import SingleProduct from '../../../components/modules/SingleProduct/SingleProduct'
 
-  const res = await fetch(
-    `${process.env.BETTER_AUTH_URL}/data.json`,
-    {
-      cache: 'no-store',
-    }
-  )
+const SingleProductDetails = async ({ params }) => {
+	const { id } = await params
+	const res = await fetch(`${process.env.BETTER_AUTH_URL}/data.json`, { cache: 'no-store' })
+	const products = await res.json()
+	const product = products.find(item => item.id === Number(id))
 
-  const products = await res.json()
+	if (!product) return <div>Product not found</div>
 
-  const product = products.find(
-    (item) => item.id === Number(id)
-  )
-
-  if (!product) {
-    return <div>Product not found</div>
-  }
-
-  return (
-    <div>
-      <ProductDetails product={product} />
-    </div>
-  )
+	return <SingleProduct product={product} />
 }
 
 export default SingleProductDetails

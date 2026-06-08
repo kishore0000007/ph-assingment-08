@@ -69,8 +69,9 @@ const styles = `
 `
 
 const ProductInfo = ({ product }) => {
-	const rating = product.rating || 4.9
-	const reviewCount = product.reviews || product.reviewCount || 128
+	const label = product.name ?? product.title ?? 'Product'
+	const rating = product.rating ?? 4.9
+	const reviewCount = product.reviews ?? product.reviewCount ?? 128
 
 	return (
 		<>
@@ -88,10 +89,10 @@ const ProductInfo = ({ product }) => {
 				</div>
 
 				{/* Title */}
-				<h1 className='sb-pinfo-title'>{product.title}</h1>
+				<h1 className='sb-pinfo-title'>{label}</h1>
 
 				{/* Price */}
-				<p className='sb-pinfo-price'>${product.price.toFixed(2)}</p>
+				<p className='sb-pinfo-price'>${(product.price ?? 0).toFixed(2)}</p>
 
 				{/* Description */}
 				<p className='sb-pinfo-desc'>{product.description}</p>

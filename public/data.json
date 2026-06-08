@@ -1,134 +1,135 @@
+
 [
-	{
-		"id": 1,
-		"title": "Samsung Galaxy S25 Ultra",
-		"description": "Flagship Android smartphone with 200MP camera, Snapdragon 8 Elite chip, and built-in S Pen.",
-		"price": 1299,
-		"image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&auto=format&fit=crop&q=80",
-		"tag": "Best Seller",
-		"category": "Smartphones",
-		"rating": 4.9,
-		"reviews": 124
-	},
-	{
-		"id": 2,
-		"title": "Apple MacBook Pro 14\"",
-		"description": "M3 Pro chip, 18GB RAM, 512GB SSD — built for creators and developers who demand the best.",
-		"price": 1999,
-		"image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&auto=format&fit=crop&q=80",
-		"tag": "Premium",
-		"category": "Laptops",
-		"rating": 4.8,
-		"reviews": 89
-	},
-	{
-		"id": 3,
-		"title": "Sony WH-1000XM5",
-		"description": "Industry-leading noise cancellation headphones with 30-hour battery life and crystal-clear audio.",
-		"price": 349,
-		"image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&auto=format&fit=crop&q=80",
-		"tag": "Top Rated",
-		"category": "Audio",
-		"rating": 5.0,
-		"reviews": 56
-	},
-	{
-		"id": 4,
-		"title": "Apple iPad Pro 12.9\"",
-		"description": "M2 chip, Liquid Retina XDR display, and support for Apple Pencil — your portable powerhouse.",
-		"price": 1099,
-		"image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&auto=format&fit=crop&q=80",
-		"tag": "Popular",
-		"category": "Tablets",
-		"rating": 4.7,
-		"reviews": 98
-	},
-	{
-		"id": 5,
-		"title": "ASUS ROG Gaming Monitor 27\"",
-		"description": "1440p 165Hz IPS display with 1ms response time and RGB lighting — dominate every match.",
-		"price": 429,
-		"image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&auto=format&fit=crop&q=80",
-		"tag": "Gamer Pick",
-		"category": "Monitors",
-		"rating": 4.9,
-		"reviews": 110
-	},
-	{
-		"id": 6,
-		"title": "Logitech MX Master 3S",
-		"description": "Ultra-precise 8K DPI tracking, silent clicks, and ergonomic design for all-day productivity.",
-		"price": 99,
-		"image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&auto=format&fit=crop&q=80",
-		"tag": "Editor's Choice",
-		"category": "Accessories",
-		"rating": 4.8,
-		"reviews": 76
-	},
-	{
-		"id": 7,
-		"title": "GoPro HERO12 Black",
-		"description": "5.3K60 video, HyperSmooth 6.0 stabilization, and waterproof to 10m. Adventure-ready.",
-		"price": 399,
-		"image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&auto=format&fit=crop&q=80",
-		"tag": "Trending",
-		"category": "Cameras",
-		"rating": 4.6,
-		"reviews": 64
-	},
-	{
-		"id": 8,
-		"title": "Amazon Echo Dot 5th Gen",
-		"description": "Compact Alexa smart speaker with improved bass, temperature sensor, and smart home hub.",
-		"price": 49,
-		"image": "https://images.unsplash.com/photo-1512446816042-444d641267d4?w=400&auto=format&fit=crop&q=80",
-		"tag": "Smart Home",
-		"category": "Smart Devices",
-		"rating": 4.5,
-		"reviews": 52
-	},
-	{
-		"id": 9,
-		"title": "Anker 733 Power Bank",
-		"description": "10,000mAh with 65W GaN charging — charge your laptop, phone, and tablet simultaneously.",
-		"price": 79,
-		"image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&auto=format&fit=crop&q=80",
-		"tag": "Must Have",
-		"category": "Power",
-		"rating": 4.7,
-		"reviews": 43
-	},
-	{
-		"id": 10,
-		"title": "Samsung 970 EVO SSD 1TB",
-		"description": "NVMe M.2 SSD with read speeds up to 3,500MB/s — supercharge your PC or laptop storage.",
-		"price": 89,
-		"image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&auto=format&fit=crop&q=80",
-		"tag": "Fast",
-		"category": "Storage",
-		"rating": 4.6,
-		"reviews": 88
-	},
-	{
-		"id": 11,
-		"title": "DJI Mini 4 Pro Drone",
-		"description": "Under 249g, 4K HDR video, omnidirectional obstacle sensing, and 34-min flight time.",
-		"price": 759,
-		"image": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&auto=format&fit=crop&q=80",
-		"tag": "New Arrival",
-		"category": "Drones",
-		"rating": 4.8,
-		"reviews": 71
-	},
-	{
-		"id": 12,
-		"title": "Apple Watch Series 9",
-		"description": "Always-on Retina display, blood oxygen & ECG sensors, crash detection, and all-day battery.",
-		"price": 399,
-		"image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&auto=format&fit=crop&q=80",
-		"tag": "Wearable",
-		"category": "Smartwatches",
-		"rating": 4.4,
-		"reviews": 39
-	}
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&auto=format&fit=crop&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Beach Straw Hat",
+    "brand": "SunWear",
+    "price": 22,
+    "rating": 4.5,
+    "stock": 25,
+    "description": "Wide-brim straw hat offering natural sun protection for beach days.",
+    "image": "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?w=400&auto=format&fit=crop&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 3,
+    "name": "SPF 50 Sunscreen Lotion",
+    "brand": "GlowGuard",
+    "price": 18,
+    "rating": 4.8,
+    "stock": 50,
+    "description": "Lightweight SPF 50 sunscreen with moisturizing formula for all skin types.",
+    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&auto=format&fit=crop&q=80",
+    "category": "Skincare"
+  },
+  {
+    "id": 4,
+    "name": "Linen Summer Shirt",
+    "brand": "BreezeLine",
+    "price": 35,
+    "rating": 4.6,
+    "stock": 30,
+    "description": "Breathable linen shirt designed for hot summer days — casual and lightweight.",
+    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80",
+    "category": "Clothing"
+  },
+  {
+    "id": 5,
+    "name": "Portable Beach Umbrella",
+    "brand": "ShadeUp",
+    "price": 45,
+    "rating": 4.4,
+    "stock": 15,
+    "description": "Compact folding beach umbrella with UV-blocking canopy and sand anchor.",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&auto=format&fit=crop&q=80",
+    "category": "Outdoor"
+  },
+  {
+    "id": 6,
+    "name": "Flip Flops",
+    "brand": "SandStep",
+    "price": 12,
+    "rating": 4.3,
+    "stock": 60,
+    "description": "Comfortable EVA foam flip flops with anti-slip sole — great for beach and pool.",
+    "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&auto=format&fit=crop&q=80",
+    "category": "Footwear"
+  },
+  {
+    "id": 7,
+    "name": "Waterproof Beach Bag",
+    "brand": "WaveCarry",
+    "price": 28,
+    "rating": 4.6,
+    "stock": 20,
+    "description": "Spacious waterproof tote bag with mesh pockets — perfect for beach essentials.",
+    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&auto=format&fit=crop&q=80",
+    "category": "Bags"
+  },
+  {
+    "id": 8,
+    "name": "Cooling Towel",
+    "brand": "ChillDry",
+    "price": 14,
+    "rating": 4.5,
+    "stock": 40,
+    "description": "Instant-cool microfiber towel that stays cold for hours — ideal for outdoor sports.",
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&auto=format&fit=crop&q=80",
+    "category": "Sports"
+  },
+  {
+    "id": 9,
+    "name": "Insulated Water Bottle",
+    "brand": "HydroKeep",
+    "price": 25,
+    "rating": 4.9,
+    "stock": 35,
+    "description": "Double-wall insulated bottle keeps drinks cold for 24 hours in summer heat.",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&auto=format&fit=crop&q=80",
+    "category": "Drinkware"
+  },
+  {
+    "id": 10,
+    "name": "Kids Sun Suit",
+    "brand": "LittleSun",
+    "price": 20,
+    "rating": 4.7,
+    "stock": 18,
+    "description": "Full-body UPF 50+ swimsuit for kids — sun-safe and quick-drying.",
+    "image": "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400&auto=format&fit=crop&q=80",
+    "category": "Kids"
+  },
+  {
+    "id": 11,
+    "name": "Polarized Clip-On Lenses",
+    "brand": "ClearVue",
+    "price": 10,
+    "rating": 4.4,
+    "stock": 45,
+    "description": "Universal polarized clip-on lenses that fit over prescription glasses.",
+    "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&auto=format&fit=crop&q=80",
+    "category": "Accessories"
+  },
+  {
+    "id": 12,
+    "name": "Aloe Vera After-Sun Gel",
+    "brand": "GlowGuard",
+    "price": 13,
+    "rating": 4.8,
+    "stock": 55,
+    "description": "Soothing aloe vera gel that cools and repairs skin after sun exposure.",
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=80",
+    "category": "Skincare"
+  }
 ]

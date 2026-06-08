@@ -21,7 +21,6 @@ const styles = `
 		position: relative;
 	}
 
-	/* Dot grid bg */
 	.sb-pd::before {
 		content: '';
 		position: absolute;
@@ -39,7 +38,6 @@ const styles = `
 		z-index: 1;
 	}
 
-	/* Back button */
 	.sb-pd-back {
 		display: inline-flex;
 		align-items: center;
@@ -61,7 +59,6 @@ const styles = `
 		border-color: rgba(0, 210, 255, 0.38);
 	}
 
-	/* Main grid */
 	.sb-pd-grid {
 		display: grid;
 		gap: 28px;
@@ -71,7 +68,6 @@ const styles = `
 		.sb-pd-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 	}
 
-	/* Cards */
 	.sb-pd-card {
 		background: linear-gradient(160deg, #0d1526, #0a1020);
 		border: 1px solid rgba(0, 210, 255, 0.12);
@@ -90,7 +86,6 @@ const styles = `
 		border-radius: 16px 16px 0 0;
 	}
 
-	/* Add to cart button */
 	.sb-pd-btn {
 		width: 100%;
 		padding: 14px;
@@ -125,14 +120,12 @@ const styles = `
 		box-shadow: 0 0 22px rgba(0, 185, 140, 0.3);
 	}
 
-	/* Divider */
 	.sb-pd-divider {
 		margin: 20px 0;
 		height: 1px;
 		background: rgba(0, 210, 255, 0.1);
 	}
 
-	/* Trust markers */
 	.sb-pd-trust {
 		display: flex;
 		flex-wrap: wrap;
@@ -170,6 +163,8 @@ const ProductDetails = ({ product, onAddToCart }) => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [isAdded, setIsAdded] = useState(false)
 
+	const label = product.name ?? product.title ?? 'Product'
+
 	const handleAddToCart = async (e) => {
 		e.preventDefault()
 
@@ -182,7 +177,7 @@ const ProductDetails = ({ product, onAddToCart }) => {
 		try {
 			await new Promise((r) => setTimeout(r, 800))
 			onAddToCart?.({ ...product, quantity: qty, occasion, instructions })
-			toast.success(`🛒 Added ${qty}× ${product.title} to your cart!`)
+			toast.success(`🛒 Added ${qty}× ${label} to your cart!`)
 			setIsAdded(true)
 			setTimeout(() => {
 				setIsAdded(false)
@@ -214,7 +209,7 @@ const ProductDetails = ({ product, onAddToCart }) => {
 
 						{/* Image card */}
 						<div className='sb-pd-card'>
-							<ProductImage image={product.image} title={product.title} />
+							<ProductImage image={product.image} title={label} />
 						</div>
 
 						{/* Info card */}
@@ -231,7 +226,6 @@ const ProductDetails = ({ product, onAddToCart }) => {
 									setInstructions={setInstructions}
 								/>
 
-								{/* Add to cart */}
 								<button
 									type='submit'
 									disabled={isLoading}
@@ -247,7 +241,6 @@ const ProductDetails = ({ product, onAddToCart }) => {
 								</button>
 							</form>
 
-							{/* Divider + Trust */}
 							<div className='sb-pd-divider' />
 							<div className='sb-pd-trust'>
 								<div className='sb-pd-trust-item'>
@@ -267,7 +260,6 @@ const ProductDetails = ({ product, onAddToCart }) => {
 
 					</div>
 
-					{/* Additional info */}
 					<ProductAdditionalInfo product={product} />
 
 				</div>

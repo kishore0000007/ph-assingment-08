@@ -6,19 +6,17 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { Avatar, Button, Dropdown } from '@heroui/react'
-import { Menu, Cpu } from 'lucide-react'
+import { Dropdown } from '@heroui/react'
+import { Menu, ShoppingCart } from 'lucide-react'
 
 import ThemeToggler from '@/lib/ThemeToggler'
 import { authClient } from '@/lib/auth-client'
 
 const navLinks = [
 	{ label: 'Home', href: '/' },
-	{ label: 'Shop', href: '/shop' },
-	{ label: 'Our Story', href: '/story' },
+	{ label: 'Products', href: '/shop' },
 ]
 
-// ── Inline styles for the tech-forward design ──
 const styles = `
 	@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
 
@@ -51,7 +49,6 @@ const styles = `
 		position: relative;
 	}
 
-	/* ── Logo ── */
 	.sb-logo {
 		display: flex;
 		align-items: center;
@@ -85,8 +82,8 @@ const styles = `
 		animation: sheen 3.5s infinite;
 	}
 	@keyframes sheen {
-		0% { transform: translateX(-100%) rotate(0deg); }
-		100% { transform: translateX(100%) rotate(0deg); }
+		0% { transform: translateX(-100%); }
+		100% { transform: translateX(100%); }
 	}
 
 	.sb-logo-text { display: flex; flex-direction: column; }
@@ -108,7 +105,6 @@ const styles = `
 		margin-top: 1px;
 	}
 
-	/* ── Nav Links ── */
 	.sb-nav-links {
 		display: none;
 		align-items: center;
@@ -148,7 +144,6 @@ const styles = `
 	}
 	.sb-nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
 
-	/* ── Right side ── */
 	.sb-right {
 		display: flex;
 		align-items: center;
@@ -171,7 +166,6 @@ const styles = `
 		background: rgba(0, 210, 255, 0.12);
 	}
 
-	/* ── Auth buttons ── */
 	.sb-auth-desktop {
 		display: none;
 		align-items: center;
@@ -191,7 +185,6 @@ const styles = `
 		cursor: pointer;
 		text-decoration: none;
 		transition: all 0.2s ease;
-		letter-spacing: 0.01em;
 		display: inline-flex;
 		align-items: center;
 	}
@@ -214,7 +207,6 @@ const styles = `
 		cursor: pointer;
 		text-decoration: none;
 		transition: all 0.2s ease;
-		letter-spacing: 0.01em;
 		display: inline-flex;
 		align-items: center;
 		box-shadow: 0 0 16px rgba(0, 210, 255, 0.3), 0 2px 8px rgba(0,0,0,0.3);
@@ -236,7 +228,6 @@ const styles = `
 		color: #ff6b6b;
 		cursor: pointer;
 		transition: all 0.2s ease;
-		letter-spacing: 0.01em;
 		display: inline-flex;
 		align-items: center;
 	}
@@ -246,12 +237,6 @@ const styles = `
 		box-shadow: 0 0 12px rgba(255, 60, 60, 0.2);
 	}
 
-	/* ── User info ── */
-	.sb-user-info { display: flex; flex-direction: column; align-items: flex-end; }
-	.sb-user-name { font-size: 0.82rem; font-weight: 600; color: #e8f0ff; line-height: 1.1; }
-	.sb-user-email { font-size: 0.68rem; color: rgba(0, 210, 255, 0.55); }
-
-	/* ── Skeleton ── */
 	.sb-skeleton {
 		height: 34px;
 		width: 90px;
@@ -265,7 +250,32 @@ const styles = `
 		100% { background-position: -200% 0; }
 	}
 
-	/* ── Mobile hamburger ── */
+	.sb-avatar {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 2px solid rgba(0, 210, 255, 0.5);
+		cursor: pointer;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	.sb-avatar-fallback {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 2px solid rgba(0, 210, 255, 0.5);
+		background: linear-gradient(135deg, #00d2ff, #0066ff);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: #fff;
+		cursor: pointer;
+		flex-shrink: 0;
+	}
+
 	.sb-hamburger {
 		display: inline-flex;
 		align-items: center;
@@ -285,14 +295,31 @@ const styles = `
 		color: #00d2ff;
 	}
 
-	@media (min-width: 768px) {
-		.sb-mobile-only { display: none !important; }
-	}
+	@media (min-width: 768px) { .sb-mobile-only { display: none !important; } }
 	@media (max-width: 767px) {
 		.sb-desktop-only { display: none !important; }
 		.sb-logo-text { display: none; }
 	}
 `
+
+const UserAvatar = ({ user }) => {
+	if (user?.image) {
+		return (
+			<Image
+				src={user.image}
+				alt={`${user.name || 'User'} avatar`}
+				width={32}
+				height={32}
+				className='sb-avatar'
+			/>
+		)
+	}
+	return (
+		<div className='sb-avatar-fallback'>
+			{(user?.name || 'U').charAt(0).toUpperCase()}
+		</div>
+	)
+}
 
 const Navbar = () => {
 	const router = useRouter()
@@ -306,10 +333,7 @@ const Navbar = () => {
 		await authClient.signOut({
 			fetchOptions: {
 				onSuccess: () => {
-					toast.success('See you soon! 👋 Logged out successfully', {
-						position: 'top-right',
-						autoClose: 3000,
-					})
+					toast.success('See you soon! 👋', { position: 'top-right', autoClose: 3000 })
 					router.push('/')
 					router.refresh()
 				},
@@ -318,30 +342,15 @@ const Navbar = () => {
 	}
 
 	const renderAuthSection = () => {
-		if (!mounted) return <div className='sb-skeleton' />
-		if (isPending) return <div className='sb-skeleton' />
+		if (!mounted || isPending) return <div className='sb-skeleton' />
 
 		if (user) {
 			return (
 				<div className='sb-auth-desktop'>
-					<div className='sb-user-info'>
-						<span className='sb-user-name'>{user.name}</span>
-						<span className='sb-user-email'>{user.email}</span>
-					</div>
-					 <Link href='/profile'>
-  <Avatar
-    src={user?.image || undefined}
-    name={user?.name || 'User'}
-    size='sm'
-    style={{
-      border: '2px solid rgba(0,210,255,0.5)',
-      cursor: 'pointer',
-    }}
-  />
-</Link>
-					<button className='sb-btn-logout' onClick={handleLogout}>
-						Logout
-					</button>
+					<Link href='/profile'>
+						<UserAvatar user={user} />
+					</Link>
+					<button className='sb-btn-logout' onClick={handleLogout}>Logout</button>
 				</div>
 			)
 		}
@@ -357,30 +366,25 @@ const Navbar = () => {
 	return (
 		<>
 			<style dangerouslySetInnerHTML={{ __html: styles }} />
-
 			<nav className='sb-navbar'>
 				<header className='sb-container'>
 
-					{/* ── Logo ── */}
+					{/* Logo */}
 					<Link href='/' className='sb-logo'>
 						<div className='sb-logo-icon'>
-							{/* Replace with your actual logo image */}
-							<Cpu size={22} color='#fff' strokeWidth={1.8} />
-							{/* <Image src='/logo1.png' alt='SmartByte' width={28} height={28} className='object-contain' /> */}
+							<ShoppingCart size={22} color='#fff' strokeWidth={1.8} />
 						</div>
 						<div className='sb-logo-text'>
-							<span className='sb-logo-name'>Smart<span>Byte</span></span>
-							<span className='sb-logo-tagline'>Everything Tech, One Place.</span>
+							<span className='sb-logo-name'>Sun<span>Cart</span></span>
+							<span className='sb-logo-tagline'>Everything You Need.</span>
 						</div>
 					</Link>
 
-					{/* ── Desktop Nav Links ── */}
+					{/* Desktop Nav */}
 					<ul className='sb-nav-links'>
 						{navLinks.map((link) => (
 							<li key={link.href}>
-								<Link href={link.href} className='sb-nav-link'>
-									{link.label}
-								</Link>
+								<Link href={link.href} className='sb-nav-link'>{link.label}</Link>
 							</li>
 						))}
 						{mounted && !isPending && user && (
@@ -390,10 +394,8 @@ const Navbar = () => {
 						)}
 					</ul>
 
-					{/* ── Right Side ── */}
+					{/* Right Side */}
 					<div className='sb-right'>
-
-						{/* Theme Toggle */}
 						<div className='sb-theme-wrap'>
 							<ThemeToggler />
 						</div>
@@ -401,18 +403,10 @@ const Navbar = () => {
 						{/* Desktop auth */}
 						{renderAuthSection()}
 
-					 	{/* Mobile avatar */}
+						{/* Mobile avatar */}
 						{mounted && !isPending && user && (
 							<Link href='/profile' className='sb-mobile-only'>
-								<Avatar
-									src={user?.image || undefined}
-									name={user?.name || 'User'}
-									size='sm'
-									style={{
-										border: '2px solid rgba(0,210,255,0.5)',
-										cursor: 'pointer',
-									}}
-								/>
+								<UserAvatar user={user} />
 							</Link>
 						)}
 
@@ -420,65 +414,53 @@ const Navbar = () => {
 						<div className='sb-mobile-only'>
 							<Dropdown>
 								<Dropdown.Trigger>
-									<div
-										role='button'
-										tabIndex={0}
-										aria-label='Open navigation menu'
-										className='sb-hamburger'
-									>
+									<div role='button' tabIndex={0} aria-label='Open menu' className='sb-hamburger'>
 										<Menu size={17} />
 									</div>
 								</Dropdown.Trigger>
-
-								<Dropdown.Popover
-									style={{
-										background: '#0d1526',
-										border: '1px solid rgba(0,210,255,0.2)',
-										borderRadius: '12px',
-										marginTop: '8px',
-										boxShadow: '0 8px 32px rgba(0,0,0,0.5), 0 0 24px rgba(0,210,255,0.08)',
-									}}
-								>
-									<Dropdown.Menu aria-label='Navigation menu'>
+								<Dropdown.Popover style={{
+									background: '#0d1526',
+									border: '1px solid rgba(0,210,255,0.2)',
+									borderRadius: '12px',
+									marginTop: '8px',
+									boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+								}}>
+									<Dropdown.Menu aria-label='Navigation'>
 										{navLinks.map((link) => (
 											<Dropdown.Item key={link.href} textValue={link.label}>
-												<Link href={link.href} style={{ display: 'block', width: '100%', fontWeight: 500, color: 'rgba(220,235,255,0.85)', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>
+												<Link href={link.href} style={{ display: 'block', width: '100%', fontWeight: 500, color: 'rgba(220,235,255,0.85)', textDecoration: 'none' }}>
 													{link.label}
 												</Link>
 											</Dropdown.Item>
 										))}
 
-										{mounted && !isPending && user
-											? [
-													<Dropdown.Item key='profile' textValue='My Profile'>
-														<Link href='/profile' style={{ display: 'block', width: '100%', fontWeight: 500, color: '#00d2ff', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>
-															My Profile
-														</Link>
-													</Dropdown.Item>,
-													<Dropdown.Item key='logout' textValue='Logout' className='text-danger' onAction={handleLogout}>
-														<span style={{ fontWeight: 600, color: '#ff6b6b', fontFamily: "'DM Sans', sans-serif" }}>Logout</span>
-													</Dropdown.Item>,
-												]
-											: mounted && !isPending && !user
-												? [
-														<Dropdown.Item key='login' textValue='Login'>
-															<Link href='/login' style={{ display: 'block', width: '100%', fontWeight: 600, color: '#00d2ff', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>
-																Login
-															</Link>
-														</Dropdown.Item>,
-														<Dropdown.Item key='register' textValue='Register'>
-															<Link href='/register' style={{ display: 'block', width: '100%', fontWeight: 700, color: '#fff', textDecoration: 'none', fontFamily: "'DM Sans', sans-serif" }}>
-																Register
-															</Link>
-														</Dropdown.Item>,
-													]
-												: []}
+										{mounted && !isPending && user ? (
+											<>
+												<Dropdown.Item key='profile' textValue='My Profile'>
+													<Link href='/profile' style={{ display: 'block', width: '100%', fontWeight: 500, color: '#00d2ff', textDecoration: 'none' }}>
+														My Profile
+													</Link>
+												</Dropdown.Item>
+												<Dropdown.Item key='logout' textValue='Logout' onAction={handleLogout}>
+													<span style={{ fontWeight: 600, color: '#ff6b6b' }}>Logout</span>
+												</Dropdown.Item>
+											</>
+										) : mounted && !isPending && !user ? (
+											<>
+												<Dropdown.Item key='login' textValue='Login'>
+													<Link href='/login' style={{ display: 'block', width: '100%', fontWeight: 600, color: '#00d2ff', textDecoration: 'none' }}>Login</Link>
+												</Dropdown.Item>
+												<Dropdown.Item key='register' textValue='Register'>
+													<Link href='/register' style={{ display: 'block', width: '100%', fontWeight: 700, color: '#fff', textDecoration: 'none' }}>Register</Link>
+												</Dropdown.Item>
+											</>
+										) : null}
 									</Dropdown.Menu>
 								</Dropdown.Popover>
 							</Dropdown>
 						</div>
-
 					</div>
+
 				</header>
 			</nav>
 		</>
