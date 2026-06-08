@@ -1,4 +1,6 @@
  import ProductCard from '../../Shared/ProductCard'
+import fs from 'fs'
+import path from 'path'
 
 const styles = `
 	@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
@@ -11,7 +13,6 @@ const styles = `
 		overflow: hidden;
 	}
 
-	/* Subtle dot pattern */
 	.sb-featured::before {
 		content: '';
 		position: absolute;
@@ -21,7 +22,6 @@ const styles = `
 		pointer-events: none;
 	}
 
-	/* Ambient glow */
 	.sb-featured-glow {
 		position: absolute;
 		top: -120px;
@@ -42,7 +42,6 @@ const styles = `
 		z-index: 1;
 	}
 
-	/* ── Header ── */
 	.sb-featured-header {
 		text-align: center;
 		margin-bottom: 52px;
@@ -87,9 +86,7 @@ const styles = `
 		margin-bottom: 12px;
 	}
 
-	.sb-featured-title span {
-		color: #00d2ff;
-	}
+	.sb-featured-title span { color: #00d2ff; }
 
 	.sb-featured-divider {
 		width: 60px;
@@ -108,30 +105,15 @@ const styles = `
 		line-height: 1.7;
 	}
 
-	/* ── Grid ── */
 	.sb-featured-grid {
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
 		gap: 20px;
 	}
+	@media (min-width: 640px) { .sb-featured-grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (min-width: 1024px) { .sb-featured-grid { grid-template-columns: repeat(3, 1fr); } }
 
-	@media (min-width: 640px) {
-		.sb-featured-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.sb-featured-grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-
-	/* ── View All CTA ── */
-	.sb-featured-cta {
-		text-align: center;
-		margin-top: 48px;
-	}
+	.sb-featured-cta { text-align: center; margin-top: 48px; }
 
 	.sb-cta-btn {
 		display: inline-flex;
@@ -157,20 +139,14 @@ const styles = `
 		transform: translateY(-1px);
 		color: #00d2ff;
 	}
-	.sb-cta-arrow {
-		transition: transform 0.2s ease;
-	}
-	.sb-cta-btn:hover .sb-cta-arrow {
-		transform: translateX(3px);
-	}
+	.sb-cta-arrow { transition: transform 0.2s ease; }
+	.sb-cta-btn:hover .sb-cta-arrow { transform: translateX(3px); }
 `
 
 const SignatureTreats = async () => {
-	const res = await fetch(`${process.env.BETTER_AUTH_URL}/data.json`, {
-		cache: 'no-store',
-	})
-
-	const products = await res.json()
+	const filePath = path.join(process.cwd(), 'public', 'data.json')
+	const fileContents = fs.readFileSync(filePath, 'utf8')
+	const products = JSON.parse(fileContents)
 
 	return (
 		<>
@@ -181,32 +157,26 @@ const SignatureTreats = async () => {
 
 				<div className='sb-featured-inner'>
 
-					{/* ── Header ── */}
 					<div className='sb-featured-header'>
 						<div className='sb-featured-badge'>
 							<span className='sb-featured-badge-dot' />
 							Hand-Picked For You
 						</div>
-
 						<h2 className='sb-featured-title'>
 							Featured <span>Products</span>
 						</h2>
-
 						<div className='sb-featured-divider' />
-
 						<p className='sb-featured-subtitle'>
-							Top-rated tech curated for enthusiasts — explore our most loved gadgets and gear.
+							Top-rated summer essentials curated just for you — explore our most loved products.
 						</p>
 					</div>
 
-					{/* ── Grid ── */}
 					<div className='sb-featured-grid'>
 						{products.slice(0, 3).map((product) => (
 							<ProductCard key={product.id} product={product} />
 						))}
 					</div>
 
-					{/* ── View All CTA ── */}
 					<div className='sb-featured-cta'>
 						<a href='/shop' className='sb-cta-btn'>
 							View All Products
