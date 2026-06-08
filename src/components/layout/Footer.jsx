@@ -274,7 +274,7 @@ const Footer = () => {
 					{/* ── Bottom bar ── */}
 					<div className='sb-bottom'>
 						<p className='sb-copyright'>
-							© 2018 – {year} <span>SmartByte</span>. All rights reserved.
+							© 2019 – {year} <span>SmartByte</span>. All rights reserved.
 						</p>
 						<p className='sb-tagline-bottom'>Everything Tech, One Place.</p>
 					</div>
