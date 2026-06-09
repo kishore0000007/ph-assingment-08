@@ -1,16 +1,9 @@
- import ShopHeading from '../../components/modules/Shop/ShopHeading'
-import Products from '../../components/modules/Shop/Products'
-import React from 'react'
-import fs from 'fs'
-import path from 'path'
+ import productsData from '../../../public/data.json'
 
 export const dynamic = 'force-dynamic'
 
 const ShopPage = async () => {
-  const filePath = path.join(process.cwd(), 'public', 'data.json')
-  const fileContents = fs.readFileSync(filePath, 'utf8')
-  const products = JSON.parse(fileContents)
-
+  const products = productsData
   return (
     <section>
       <ShopHeading />
