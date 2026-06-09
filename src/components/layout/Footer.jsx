@@ -1,7 +1,7 @@
  'use client'
 
 import Link from 'next/link'
-import { Cpu } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { FaInstagram, FaFacebookF, FaPinterestP } from 'react-icons/fa'
 
 const styles = `
@@ -23,7 +23,6 @@ const styles = `
 		pointer-events: none;
 	}
 
-	/* Top glow accent */
 	.sb-footer-glow {
 		position: absolute;
 		top: 0;
@@ -41,7 +40,6 @@ const styles = `
 		position: relative;
 	}
 
-	/* ── Brand section ── */
 	.sb-brand {
 		display: flex;
 		flex-direction: column;
@@ -111,7 +109,6 @@ const styles = `
 		font-weight: 400;
 	}
 
-	/* ── Nav links ── */
 	.sb-nav {
 		display: flex;
 		flex-wrap: wrap;
@@ -152,7 +149,6 @@ const styles = `
 	}
 	.sb-nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
 
-	/* ── Social icons ── */
 	.sb-socials {
 		display: flex;
 		justify-content: center;
@@ -181,7 +177,6 @@ const styles = `
 		box-shadow: 0 0 18px rgba(0, 210, 255, 0.4), 0 4px 12px rgba(0,0,0,0.3);
 	}
 
-	/* ── Bottom bar ── */
 	.sb-bottom {
 		border-top: 1px solid rgba(0, 210, 255, 0.1);
 		padding-top: 24px;
@@ -198,7 +193,6 @@ const styles = `
 		letter-spacing: 0.02em;
 		text-align: center;
 	}
-
 	.sb-copyright span {
 		color: rgba(0, 210, 255, 0.5);
 		font-weight: 600;
@@ -224,31 +218,29 @@ const Footer = () => {
 
 				<div className='sb-footer-inner'>
 
-					{/* ── Brand ── */}
+					{/* Brand */}
 					<div className='sb-brand'>
 						<Link href='/' className='sb-brand-logo'>
 							<div className='sb-brand-icon'>
-								<Cpu size={24} color='#fff' strokeWidth={1.8} />
-								{/* Replace with your logo: <Image src='/logo1.png' alt='SmartByte' width={30} height={30} className='object-contain' /> */}
+								<ShoppingCart size={24} color='#fff' strokeWidth={1.8} />
 							</div>
-							<span className='sb-brand-name'>Smart<span>Byte</span></span>
+							<span className='sb-brand-name'>Sun<span>Cart</span></span>
 						</Link>
 
 						<div className='sb-brand-divider' />
 
 						<p className='sb-brand-desc'>
-							Your one-stop destination for everything tech — from cutting-edge gadgets
-							to everyday essentials. Curated with precision, delivered with care.
+							Your one-stop destination for summer essentials — from UV protection
+							to beach gear. Curated for sunny days, delivered with care.
 						</p>
 					</div>
 
-					{/* ── Navigation ── */}
+					{/* Navigation */}
 					<ul className='sb-nav'>
 						{[
 							{ label: 'Home', href: '/' },
-							{ label: 'Shop', href: '/shop' },
+							{ label: 'Products', href: '/shop' },
 							{ label: 'Our Story', href: '/story' },
-							{ label: 'Contact', href: '/contact' },
 						].map((link) => (
 							<li key={link.href}>
 								<Link href={link.href} className='sb-nav-link'>
@@ -258,7 +250,7 @@ const Footer = () => {
 						))}
 					</ul>
 
-					{/* ── Socials ── */}
+					{/* Socials */}
 					<div className='sb-socials'>
 						<Link href='#' className='sb-social-btn' aria-label='Instagram'>
 							<FaInstagram size={17} />
@@ -271,12 +263,12 @@ const Footer = () => {
 						</Link>
 					</div>
 
-					{/* ── Bottom bar ── */}
+					{/* Bottom bar */}
 					<div className='sb-bottom'>
 						<p className='sb-copyright'>
-							© 2019 – {year} <span>SmartByte</span>. All rights reserved.
+							© 2024 – {year} <span>SunCart</span>. All rights reserved.
 						</p>
-						<p className='sb-tagline-bottom'>Everything Tech, One Place.</p>
+						<p className='sb-tagline-bottom'>Everything You Need.</p>
 					</div>
 
 				</div>

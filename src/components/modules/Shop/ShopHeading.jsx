@@ -17,7 +17,6 @@ const styles = `
 		overflow: hidden;
 	}
 
-	/* Ambient glow */
 	.sb-sh-glow {
 		position: absolute;
 		top: -80px;
@@ -30,7 +29,6 @@ const styles = `
 		pointer-events: none;
 	}
 
-	/* ── Text block ── */
 	.sb-sh-text { position: relative; z-index: 1; }
 
 	.sb-sh-badge {
@@ -89,7 +87,6 @@ const styles = `
 		line-height: 1.7;
 	}
 
-	/* ── Filter buttons ── */
 	.sb-sh-filters {
 		display: flex;
 		flex-wrap: wrap;
@@ -117,8 +114,6 @@ const styles = `
 		background: rgba(0, 210, 255, 0.1);
 		color: #00d2ff;
 	}
-
-	/* Active state */
 	.sb-filter-btn.active {
 		background: linear-gradient(135deg, #00d2ff, #0055ff);
 		border-color: transparent;
@@ -133,15 +128,15 @@ const styles = `
 
 const categories = [
 	'All Products',
-	'Smartphones',
-	'Laptops',
-	'Audio',
-	'Tablets',
-	'Monitors',
 	'Accessories',
-	'Cameras',
-	'Drones',
-	'Smartwatches',
+	'Skincare',
+	'Clothing',
+	'Outdoor',
+	'Footwear',
+	'Bags',
+	'Sports',
+	'Drinkware',
+	'Kids',
 ]
 
 const ShopHeading = () => {
@@ -154,7 +149,7 @@ const ShopHeading = () => {
 			<div className='sb-shop-heading'>
 				<div className='sb-sh-glow' />
 
-				{/* ── Title ── */}
+				{/* Title */}
 				<div className='sb-sh-text'>
 					<div className='sb-sh-badge'>
 						<span className='sb-sh-badge-dot' />
@@ -162,17 +157,17 @@ const ShopHeading = () => {
 					</div>
 
 					<h2 className='sb-sh-title'>
-						Shop Our <span>Collection</span>
+						Shop Our <span>Summer Collection</span>
 					</h2>
 
 					<div className='sb-sh-divider' />
 
 					<p className='sb-sh-sub'>
-						Explore top-rated gadgets and gear — curated for tech enthusiasts, priced for everyone.
+						Handpicked summer essentials — stay cool, protected, and beach-ready all season long.
 					</p>
 				</div>
 
-				{/* ── Filters ── */}
+				{/* Filters */}
 				<div className='sb-sh-filters'>
 					{categories.map((cat) => (
 						<button

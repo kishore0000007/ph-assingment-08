@@ -14,7 +14,6 @@ const styles = `
 		background: #060a14;
 	}
 
-	/* Background image */
 	.sb-banner-bg {
 		position: absolute;
 		inset: 0;
@@ -22,17 +21,14 @@ const styles = `
 		opacity: 0.18;
 	}
 
-	/* Grid dot pattern */
 	.sb-banner-pattern {
 		position: absolute;
 		inset: 0;
-		background-image:
-			radial-gradient(rgba(0, 210, 255, 0.12) 1px, transparent 1px);
+		background-image: radial-gradient(rgba(0, 210, 255, 0.12) 1px, transparent 1px);
 		background-size: 40px 40px;
 		pointer-events: none;
 	}
 
-	/* Gradient overlay */
 	.sb-banner-overlay {
 		position: absolute;
 		inset: 0;
@@ -44,7 +40,6 @@ const styles = `
 		);
 	}
 
-	/* Ambient cyan glow blobs */
 	.sb-blob-1 {
 		position: absolute;
 		top: -120px;
@@ -77,7 +72,6 @@ const styles = `
 		pointer-events: none;
 	}
 
-	/* Decorative circuit lines */
 	.sb-circuit {
 		position: absolute;
 		inset: 0;
@@ -85,7 +79,6 @@ const styles = `
 		opacity: 0.07;
 	}
 
-	/* Content */
 	.sb-banner-inner {
 		position: relative;
 		z-index: 10;
@@ -96,7 +89,6 @@ const styles = `
 		text-align: center;
 	}
 
-	/* Badge */
 	.sb-badge {
 		display: inline-flex;
 		align-items: center;
@@ -127,7 +119,6 @@ const styles = `
 		50% { opacity: 0.5; transform: scale(0.8); }
 	}
 
-	/* Heading */
 	.sb-heading {
 		font-family: 'Syne', sans-serif;
 		font-weight: 800;
@@ -154,7 +145,6 @@ const styles = `
 		border-radius: 99px;
 	}
 
-	/* Description */
 	.sb-desc {
 		max-width: 580px;
 		margin: 0 auto 40px;
@@ -165,7 +155,6 @@ const styles = `
 		animation: fadeUp 0.8s ease 0.2s both;
 	}
 
-	/* Buttons */
 	.sb-buttons {
 		display: flex;
 		flex-wrap: wrap;
@@ -212,6 +201,7 @@ const styles = `
 		font-size: 0.95rem;
 		font-weight: 600;
 		letter-spacing: 0.02em;
+		text-decoration: none;
 		cursor: pointer;
 		transition: all 0.25s ease;
 		backdrop-filter: blur(12px);
@@ -224,7 +214,6 @@ const styles = `
 		box-shadow: 0 0 18px rgba(0, 210, 255, 0.2);
 	}
 
-	/* Stats row */
 	.sb-stats {
 		display: flex;
 		flex-wrap: wrap;
@@ -263,7 +252,6 @@ const styles = `
 		align-self: center;
 	}
 
-	/* Scroll indicator */
 	.sb-scroll {
 		position: absolute;
 		bottom: 32px;
@@ -294,7 +282,6 @@ const styles = `
 		50% { opacity: 0.3; }
 	}
 
-	/* Animations */
 	@keyframes fadeUp {
 		from { opacity: 0; transform: translateY(24px); }
 		to { opacity: 1; transform: translateY(0); }
@@ -312,21 +299,13 @@ const Banner = () => {
 
 			<header className='sb-banner'>
 
-				{/* Background image */}
 				<div className='sb-banner-bg' />
-
-				{/* Grid dot pattern */}
 				<div className='sb-banner-pattern' />
-
-				{/* Gradient overlay */}
 				<div className='sb-banner-overlay' />
-
-				{/* Ambient glow blobs */}
 				<div className='sb-blob-1' />
 				<div className='sb-blob-2' />
 				<div className='sb-blob-3' />
 
-				{/* Decorative circuit SVG */}
 				<svg className='sb-circuit' viewBox='0 0 1200 700' preserveAspectRatio='none'>
 					<path d='M0 350 H300 V150 H600 V350 H900 V550 H1200' stroke='#00d2ff' strokeWidth='1' fill='none' />
 					<path d='M0 200 H200 V500 H500 V200 H800 V500 H1200' stroke='#0055ff' strokeWidth='0.8' fill='none' />
@@ -338,28 +317,23 @@ const Banner = () => {
 					<circle cx='800' cy='500' r='3' fill='#0055ff' />
 				</svg>
 
-				{/* Content */}
 				<div className='sb-banner-inner'>
 
-					{/* Badge */}
 					<div className='sb-badge'>
 						<span className='sb-badge-dot' />
-						Everything Tech, One Place
+						Summer Essentials, One Place
 					</div>
 
-					{/* Heading */}
 					<h1 className='sb-heading'>
-						Next-Gen Gadgets, <br />
-						<span className='sb-heading-accent'>Delivered to You.</span>
+						Your Summer Starts <br />
+						<span className='sb-heading-accent'>Right Here.</span>
 					</h1>
 
-					{/* Description */}
 					<p className='sb-desc'>
-						Explore the latest in tech — from flagship smartphones to smart home
-						essentials. Curated for enthusiasts, priced for everyone.
+						Discover handpicked summer essentials — from UV protection to beach gear.
+						Stay cool, stay protected, and make every sunny day count.
 					</p>
 
-					{/* Buttons */}
 					<div className='sb-buttons'>
 						<Link href='/shop' className='sb-btn-primary'>
 							<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
@@ -368,41 +342,39 @@ const Banner = () => {
 							</svg>
 							Shop Now
 						</Link>
-						<button className='sb-btn-secondary'>
+						<Link href='/story' className='sb-btn-secondary'>
 							<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
 								<circle cx='12' cy='12' r='10'/>
-								<polygon points='10 8 16 12 10 16 10 8'/>
+								<path d='M12 8v4l3 3'/>
 							</svg>
-							Watch Demo
-						</button>
+							Our Story
+						</Link>
 					</div>
 
-					{/* Stats */}
 					<div className='sb-stats'>
 						<div className='sb-stat'>
-							<span className='sb-stat-num'>10K+</span>
+							<span className='sb-stat-num'>12+</span>
 							<span className='sb-stat-label'>Products</span>
 						</div>
 						<div className='sb-stat-divider' />
 						<div className='sb-stat'>
-							<span className='sb-stat-num'>50K+</span>
+							<span className='sb-stat-num'>5K+</span>
 							<span className='sb-stat-label'>Happy Customers</span>
 						</div>
 						<div className='sb-stat-divider' />
 						<div className='sb-stat'>
-							<span className='sb-stat-num'>150+</span>
-							<span className='sb-stat-label'>Brands</span>
+							<span className='sb-stat-num'>8+</span>
+							<span className='sb-stat-label'>Categories</span>
 						</div>
 						<div className='sb-stat-divider' />
 						<div className='sb-stat'>
-							<span className='sb-stat-num'>4.9★</span>
+							<span className='sb-stat-num'>4.7★</span>
 							<span className='sb-stat-label'>Rating</span>
 						</div>
 					</div>
 
 				</div>
 
-				{/* Scroll indicator */}
 				<div className='sb-scroll'>
 					<div className='sb-scroll-line' />
 					<span className='sb-scroll-label'>Scroll</span>
