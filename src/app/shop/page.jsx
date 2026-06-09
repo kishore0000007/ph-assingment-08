@@ -1,4 +1,6 @@
- import productsData from '../../../public/data.json'
+ import ShopHeading from '../../components/modules/Shop/ShopHeading'
+import Products from '../../components/modules/Shop/Products'
+import productsData from '../../../public/data.json'
 
 export const dynamic = 'force-dynamic'
 
