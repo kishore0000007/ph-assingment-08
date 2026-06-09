@@ -1,6 +1,5 @@
  import ProductCard from '../../Shared/ProductCard'
-import fs from 'fs'
-import path from 'path'
+import productsData from '../../../../public/data.json'
 
 const styles = `
 	@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
@@ -143,10 +142,8 @@ const styles = `
 	.sb-cta-btn:hover .sb-cta-arrow { transform: translateX(3px); }
 `
 
-const SignatureTreats = async () => {
-	const filePath = path.join(process.cwd(), 'public', 'data.json')
-	const fileContents = fs.readFileSync(filePath, 'utf8')
-	const products = JSON.parse(fileContents)
+const SignatureTreats = () => {
+	const products = productsData
 
 	return (
 		<>
